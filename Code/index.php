@@ -1,3 +1,20 @@
+<?php
+    include 'connection.php';
+
+    $q = "select * from users";
+    $exectue = mysqli_query($conn,$q);
+    $nums = mysqli_num_rows($exectue);
+    $stat = "";
+    if($nums <= 4)
+    {
+        $stat = "";
+    }
+    else
+    {
+        $stat = "disable";
+    }
+?>
+
 <html>
 <head>
         <link rel="stylesheet" href="style.php" >
@@ -9,32 +26,21 @@
             <div class="main_div">
                 <h1 class="whos_watch_head"> Who's Watching</h1>
                 <div class="all_user">
-                    <div class="users">
-                        <a href="home.php" > <img src="../Users/Professor.png" alt="logo" class="user_img" /> </a>
-                        <h6 class="user_name"> Dad </h6>
-                    </div>
-                    <div class="users">
-                    <a href="home.php" > <img src="../Users/Lisboa.png" alt="logo" class="user_img" /> </a>
-                        <h6 class="user_name"> Mom </h6>
-                    </div>
-                    <div class="users">
-                    <a href="home.php" > <img src="../Users/Helsinki.png" alt="logo" class="user_img" /> </a>
-                        <h6 class="user_name"> Son </h6>
-                    </div>
-                    <div class="users">
-                    <a href="home.php" > <img src="../Users/Tokio.png" alt="logo" class="user_img" /> </a>
-                        <h6 class="user_name"> Daughter </h6>
-                    </div>
-                    <div class="users">
-                    <a href="home.php" > <img src="../Users/Rio.png" alt="logo" class="user_img" /> </a>
-                        <h6 class="user_name"> Friend </h6>
-                    </div>
-                    <div class="users">
-                        <button class="add_user"> <i class="fas fa-plus"></i> </button>
-                        <h6 class="user_name add"> ADD </h6>
+                    <?php 
+                        while($res = mysqli_fetch_array($exectue))
+                        {
+                            echo " <div class='users'>";
+                            echo " <a href='home.php' > <img src=' ".$res['Icon_URL']." ' alt='logo' class='user_img' /> </a> ";
+                            echo " <h6 class='user_name'> ".$res['Name']."</h6>";
+                            echo "</div> ";
+                        }
+                    ?>  
+                    <div class="users <?php echo $stat ?>">
+                        <a href="new_user.php" > <button class="add_user"> <i class="fas fa-plus"></i> </button> </a>
+                        <h6 class="user_name"> Add Profile </h6>
                     </div>
                 </div>
-                <button class="manage"> Manage Profiles </button>
+                <a href="manage.php"> <button class="manage"> Manage Profiles </button> </a>
             </div>
         </div>
     </body>
