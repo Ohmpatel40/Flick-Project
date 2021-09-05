@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,20 +44,56 @@
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <?php
+                                            include 'connection.php';
+
+                                            if(isset($_POST['submit']))
+                                            {
+                                                $username = $_POST['username'];
+                                                $password = $_POST['password'];
+
+                                                $q = "select * from admin where Username = '$username'";
+                                                $query = mysqli_query($conn,$q);
+                                                $count = mysqli_num_rows($query);
+                                                if($count)
+                                                {
+                                                    $data = mysqli_fetch_array($query);
+                                                    if($password == $data['Password'])
+                                                    {
+                                                        $_SESSION['username'] = $data['Username'];
+                                                        echo "<script>";
+                                                            echo ("location.href='index.php'");
+                                                        echo "</script>";
+                                                    }
+                                                    else
+                                                    {
+                                                        echo '<div class="alert alert-danger" role="alert">
+                                                                Invalid Password
+                                                            </div>'    ;
+                                                    }
+                                                }
+                                                else 
+                                                {
+                                                    echo '<div class="alert alert-danger" role="alert">
+                                                            Invalid Username
+                                                        </div>'    ;       
+                                                }
+                                            } 
+                                        ?>
                                     </div>
-                                    <form class="user">
+                                    <form method="POST" class="user">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
+                                            <input type="text" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Username...">
+                                                placeholder="Enter Username..." name="username" required autocomplete="off">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                                id="exampleInputPassword" placeholder="Password" name="password" required>
                                         </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" name="submit" class="btn btn-primary btn-user btn-block">
                                             Login
-                                        </a>
+                                        </button>
                                         <hr>
                                     </form>
                                     <div class="text-center">
@@ -64,11 +104,8 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 
     <!-- Bootstrap core JavaScript-->
