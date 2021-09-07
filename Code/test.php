@@ -1,31 +1,12 @@
-<?php 
+<html>
+    <head>
+    <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
+    <link rel="stylesheet" href="path/to/plyr.css" />
+    </head>
+<body>
+<div class="plyr__video-embed" id="player">
+<iframe src="https://www.imdb.com/videoplayer/vi2472065049" width="100%" height="100%" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
+</div>
 
-$curl = curl_init();
-
-curl_setopt_array($curl, [
-	CURLOPT_URL => "https://imdb8.p.rapidapi.com/auto-complete?q=chhapaak",
-	CURLOPT_RETURNTRANSFER => true,
-	CURLOPT_FOLLOWLOCATION => true,
-	CURLOPT_ENCODING => "",
-	CURLOPT_MAXREDIRS => 10,
-	CURLOPT_TIMEOUT => 30,
-	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-	CURLOPT_CUSTOMREQUEST => "GET",
-	CURLOPT_HTTPHEADER => [
-		"x-rapidapi-host: imdb8.p.rapidapi.com",
-		"x-rapidapi-key: 31afc35303mshb509b663c116881p13a3e0jsned9cddabac38"
-	],
-]);
-
-$response = curl_exec($curl);
-$res = json_decode($response,true);
-$err = curl_error($curl);
-
-curl_close($curl);
-
-if ($err) {
-	echo "cURL Error #:" . $err;
-} else {
-	print_r ($res);
-}
-?>
+</body>
+</html>

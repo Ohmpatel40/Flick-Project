@@ -1,6 +1,7 @@
 <?php
 
     include 'connection.php';
+    include 'session.php';
     $id = $_GET['id'];
 
     $curl = curl_init();
@@ -43,7 +44,11 @@
         }
         else
         {
-            echo "ERROR";
+            echo '
+                <div class="alert alert-danger col-12 text-center text-lg " role="alert">
+                    <i class="fas fa-times-circle "></i> Movie not found!!!
+                </div>
+            ';
         }
     }
 
@@ -71,10 +76,67 @@
                     <div class="d-sm-flex align-items-center justify-content-between mb-2">
                         <h1 class="h3 mb-0 text-gray-800">Movie Details</h1>
                     </div>
+                    <?php
+                        if(isset($_POST['submit']))
+                        {
+                            $name = $_POST['name'];
+                            $rating = $_POST['rating'];
+                            $duration = $_POST['duration'];
+                            $year = $_POST['year'];
+                            $certificate = $_POST['certificate'];
+                            $audio = $_POST['audio'];
+                            $poster = $_POST['poster_url'];
+                            $movie = $_POST['movie_url'];
+                            $cast = $_POST['cast'];
+                            $genres = $_POST['genres'];
+                            $plot = $_POST['plot'];
 
+                            if($_FILES['movie_image']['type'] == "image/jpeg" or $_FILES['movie_image']['type'] == "image/jpg" or $_FILES['movie_image']['type'] == "image/png")
+                            {
+                                $fileinfo = getimagesize($_FILES['movie_image']['tmp_name']);
+                                if($fileinfo[0] == "1540" && $fileinfo[1] == "430")
+                                {
+                                    $image_name = $_FILES['movie_image']['name'];
+
+                                    $q = 'insert into movies(ID,Movie_Name,Cast,Genres,Plot,IMDB,Duration,Year,Certificate,Audio,Poster_URL,Movie_URL,Movie_BG) values ("'.$id.'","'.$name.'","'.$cast.'","'.$genres.'","'.$plot.'","'.$rating.'","'.$duration.'","'.$year.'","
+                                    '.$certificate.'","'.$audio.'","'.$poster.'","'.$movie.'","'.$image_name.'")';
+
+                                    $resp = mysqli_query($conn,$q);
+
+                                    if($resp)
+                                    {
+                                        move_uploaded_file($_FILES['movie_image']['tmp_name'],"../moviebg/".$_FILES['movie_image']['name']);    
+                                        echo "<script>";
+                                            echo ("location.href='all_movies.php'");
+                                        echo "</script>";
+                                    }
+                                    else
+                                    {
+                                        echo "ERROR ERROR";
+                                    }
+                                }
+                                else
+                                {
+                                    echo '
+                                    <div class="alert alert-danger col-12 text-center text-sm " role="alert">
+                                        <i class="fas fa-times-circle "></i> Image dimension should be 1540 X 430
+                                    </div>
+                                    ';
+                                }
+                            }
+                            else
+                            {
+                                echo '
+                                    <div class="alert alert-danger col-12 text-center text-sm " role="alert">
+                                        <i class="fas fa-times-circle "></i> Select .jpeg , .jpg , .png files only!!!
+                                    </div>
+                                ';  
+                            }
+                        }
+                    ?>
                     <!-- Content Row -->
                     <div class="row mt-3 ml-0 mr-0 align-items-center justify-content-around">
-                        <form method="POST" style="width: 100%;">
+                        <form method="POST" enctype="multipart/form-data" style="width: 100%;">
                         
                             <div class="row mb-0">
                                 <div class="col">
@@ -144,6 +206,12 @@
                                         <input type="text" class="form-control" required name="movie_url" id="formGroupExampleInput" placeholder="Enter Movie URL">
                                     </div>
                                 </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="formGroupExampleInput">Movie Image</label>
+                                        <input type="file" class="form-control-file" required name="movie_image" id="formGroupExampleInput" accept="image/*">
+                                    </div>
+                                </div>
                             </div>
                             <div class="row mb-0">
                                 <div class="col">
@@ -190,38 +258,7 @@
 
 <?php 
     include 'includes/script.php'; 
-    include 'includes/footer.php'; 
-
-    if(isset($_POST['submit']))
-    {
-        $name = $_POST['name'];
-        $rating = $_POST['rating'];
-        $duration = $_POST['duration'];
-        $year = $_POST['year'];
-        $certificate = $_POST['certificate'];
-        $audio = $_POST['audio'];
-        $poster = $_POST['poster_url'];
-        $movie = $_POST['movie_url'];
-        $cast = $_POST['cast'];
-        $genres = $_POST['genres'];
-        $plot = $_POST['plot'];
-
-        $q = "insert into movies(ID,Movie_Name,Cast,Genres,Plot,IMDB,Duration,Year,Certificate,Audio,Poster_URL,Movie_URL) values ('$id','$name','$cast','$genres','$plot','$rating','$duration','$year','$certificate','$audio','$poster','$movie')";
-
-        $resp = mysqli_query($conn,$q);
-
-        if($resp)
-        {
-                echo "<script>";
-                    echo ("location.href='index.php'");
-                echo "</script>";
-        }
-        else
-        {
-            echo "ERROR ERROR";
-        }
-    }
- 
+    include 'includes/footer.php';  
  ?>
 
 

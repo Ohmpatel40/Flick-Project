@@ -1,7 +1,7 @@
 <?php
     include 'connection.php';
 
-    $q = "select * from users";
+    $q = "select * from members";
     $exectue = mysqli_query($conn,$q);
 ?>
 

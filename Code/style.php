@@ -13,19 +13,27 @@ body
     color: white;
 }
 
-a
+a:link
 {
     text-decoration: none;
 }
 
 .header
 {
-    background-color: black;
+    background-color: transparent;
     display: flex;
     align-items: center;
-    height: 70px;
+    height: 60px;
     width: 100%;
     position: relative;
+}
+
+.logo_menu
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 88%;
 }
 
 .header_logo
@@ -38,7 +46,7 @@ a
 
 .menu
 {
-    width: 350px;
+    width: 270px;
     display: flex;
     margin-left: 20px;
     padding-top: 0px;
@@ -49,13 +57,13 @@ a
 {
     color: #BABABA;
     font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .search
 {
     position: absolute;
-    right: 0px;
+    right: 50px;
     display: flex;
     align-items: center;
     padding-right: 10px;
@@ -63,15 +71,15 @@ a
 
 .search_logo
 {
-    font-size: 25px;
+    font-size: 18px;
     color: white;
     padding-right: 20px;
 }
 
 .user_logo
 {
-    height: 42px;
-    width: 46px;
+    height: 26px;
+    width: 30px;
 }
 
 .main_banner
@@ -101,10 +109,14 @@ a
     position: absolute;
     bottom: 60px;
     right: 20px;
+    display: flex;
 }
 
 .btn_play
 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 146px;
     height: 45px;
     border-radius: 10px;
@@ -115,6 +127,18 @@ a
     font-weight: 700;
     background-color: #FCE762;
     cursor: pointer;
+}
+
+.banner_link_movie:hover , .banner_link_movie:active , .banner_link_movie:visited , .banner_link_movie:link
+{
+    color: black;
+    text-decoration: none;
+} 
+
+.add:hover , .add:active , .add:visited , .add:link
+{
+    color: white;
+    text-decoration: none;
 }
 
 .mylist
@@ -166,6 +190,7 @@ a
     width: 137px;
     height: 207px;
     margin-right: 11px;
+    border-radius: 7px;
     transition: transform 0.2s ease-in;
 }
 
@@ -231,7 +256,7 @@ a
     -webkit-text-fill-color: black; 
     -webkit-text-stroke-width: 4px;
     -webkit-text-stroke-color: #B5B5B5;
-    top: -112;
+    top: -70;
     left: 0;
     z-index: -1;
 }
@@ -302,26 +327,26 @@ a
 .movie_detail_bg
 {
     position: absolute;
-    top: 0;
+    top: -20;
     right: 0;
-    width: 1067px;
-    height: 415px;
+    width: 80%;
+    height: 430px;
     z-index: -2;
 }
 
 .movie_detail_bg_overlay
 {
     position: absolute;
-    top: 0;
+    top: -20;
     right: 0;
-    width: 1067px;
-    height: 415px;
+    width: 80%;
+    height: 430px;
     z-index: -1;
 }
 
 .movie_details
 {
-    margin-left: 23px;
+    margin-left: 40px;
 }
 
 .movie_name
@@ -330,13 +355,14 @@ a
     font-family: 'Open Sans', sans-serif;
     font-weight: 500;
     font-size: 38px;
+    margin-top: 20px;
 }
 
 .movie_info
 {
     display: flex;
     align-items: center;
-    width: 320px;
+    width: 250px;
     height: 30px;
     margin-left: 5px;
 }
@@ -414,7 +440,7 @@ a
     color: white;
     font-weight: 200;
     width: 550px;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .cast
@@ -423,13 +449,22 @@ a
     border: none;
     font-family: 'Open Sans', sans-serif;
     font-size: 18px;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
+tr
+{
+    vertical-align: text-top;
+}
+
+td
+{
+    padding-bottom: 7px;
+}
 .white
 {
     color: white;
-    width: 150px;
+    width: 160px;
 }
 
 .grey
@@ -471,12 +506,97 @@ a
     color: #A2A2A2;
 }
 
-.sign_in
+
+.register
 {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+}
+
+.register_form
+{
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+    margin-top: 7%;
+    padding: 30px 25px 10px 25px;
+    font-family: 'Open Sans', sans-serif; 
+}
+
+.group
+{
+    width: 420px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.text
+{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    width: 200px;
+    padding: 13px 15px 13px 20px;
+    border-radius: 30px;
+    border: 2px solid #FCE762;
+    background-color: transparent;
+    color: white;
+    outline: none;
+    margin-bottom: 20px;
+}
+
+.email
+{
+    width: 100%;
+}
+
+.text:focus
+{
+    box-shadow: 0px 0px 10px rgba(252,231,98,1);
+}
+
+.register_btn
+{
+    border-radius: 100px;
+    width: 100%;
+    background-color: #FCE762;
+    color: black;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    margin-top: 10px;
+    cursor: pointer;
+    display: block;
+}
+
+.error
+{
+    background-color: rgba(255,0,0,0.4);
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    margin-bottom: 15px;
+    margin-top: -20px;
+}
+
+.success
+{
+    background-color: rgba(22,219,101,0.4);
+    height: 55px;
+    text-align: center;
+}
+
+.sign_in
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .sign_in_bg
@@ -503,7 +623,7 @@ a
 {
     background-color: rgba(0,0,0,0.7);
     color: white;
-    width: 370px;
+    width: 420px;
     margin-top: 10%;
     padding: 30px 25px 10px 25px;
     font-family: 'Open Sans', sans-serif;
@@ -516,63 +636,6 @@ a
     font-family: 'Open Sans', sans-serif;
     font-size: 30px;
     font-weight: 600;
-}
-
-.inputbox
-{
-    position: relative;
-}
-
-.inputfield
-{
-    width: 100%;
-    padding: 15px;
-    font-size: 15px;
-    color: white;
-    margin-bottom: 20px;
-    background-color: #616161;
-    border-radius: 7px;
-    outline: none;
-    font-family: 'Open Sans', sans-serif;
-}
-
-
-.inputfield:focus ~ .input_label , .inputfield:valid ~ .input_label
-{
-    top: -22px;
-    font-size: 12px;
-    color: white;
-}
-
-.input_label
-{
-    position: absolute;
-    top: 0;
-    left: 10;
-    padding: 15px 5px;
-    font-size: 14px;
-    color: #9F9696;
-    font-family: 'Open Sans', sans-serif;
-    background: transparent;
-    transition: 0.5s;
-    z-index: 0;
-    cursor: text;
-}
-
-.sign_in_btn
-{
-    width: 100%;
-    background-color: #FCE762;
-    color: black;
-    font-size: 20px;
-    border: none;
-    outline: none;
-    padding: 10px;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 700;
-    border-radius: 7px;
-    margin-top: 25px;
-    cursor: pointer;
 }
 
 .need_help

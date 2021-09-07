@@ -1,7 +1,8 @@
 <?php
     include 'connection.php';
+    include 'session.php';
 
-    $q = "select * from users";
+    $q = "select * from members where Email='".$_SESSION['email']."'";
     $exectue = mysqli_query($conn,$q);
     $nums = mysqli_num_rows($exectue);
     $stat = "";
@@ -19,6 +20,7 @@
 <head>
         <link rel="stylesheet" href="style.php" >
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
     </head>
     <body>
         <div class="whos_watching">
@@ -30,7 +32,7 @@
                         while($res = mysqli_fetch_array($exectue))
                         {
                             echo " <div class='users'>";
-                            echo " <a href='home.php' > <img src=' ".$res['Icon_URL']." ' alt='logo' class='user_img' /> </a> ";
+                            echo " <a href='setid.php?id=".$res['ID']." '> <img src=' ".$res['Icon_URL']." ' alt='logo' class='user_img' /> </a> ";
                             echo " <h6 class='user_name'> ".$res['Name']."</h6>";
                             echo "</div> ";
                         }

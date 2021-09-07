@@ -1,7 +1,7 @@
 <?php
     include 'connection.php';
     $ids = $_GET['id']; 
-    $q = "select * from users where ID = $ids";
+    $q = "select * from members where ID = $ids";
     $execute = mysqli_query($conn,$q);
     $res = mysqli_fetch_array($execute);
 
@@ -90,12 +90,12 @@
 
                 if(isset($_POST['icon']))
                 {
-                    $q = "update users set Icon_URL = '$URL' , Name = '$name' where ID = $ids";
+                    $q = "update members set Icon_URL = '$URL' , Name = '$name' where ID = $ids";
                     
                 }
                 else
                 {
-                    $q = "update users set Name = '$name' where ID = $ids";
+                    $q = "update members set Name = '$name' where ID = $ids";
                 }
                 $execute = mysqli_query($conn,$q);
 
