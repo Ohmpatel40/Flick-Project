@@ -11,6 +11,7 @@ body
 {
     background-color: black;
     color: white;
+    overflow-x: hidden;
 }
 
 a:link
@@ -327,20 +328,21 @@ a:link
 .movie_detail_bg
 {
     position: absolute;
-    top: -20;
-    right: 0;
-    width: 80%;
-    height: 430px;
+    top: -50;
+    right: -210;
+    width: 100%;
+    height: 500px;
     z-index: -2;
+    border: 1px solid white;
+    
 }
-
 .movie_detail_bg_overlay
 {
     position: absolute;
-    top: -20;
+    top: 0;
     right: 0;
-    width: 80%;
-    height: 430px;
+    width: 100%;
+    height: 100vh;
     z-index: -1;
 }
 

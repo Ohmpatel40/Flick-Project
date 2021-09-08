@@ -1,12 +1,15 @@
 <html>
     <head>
-    <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
-    <link rel="stylesheet" href="path/to/plyr.css" />
+        <link rel="stylesheet" href="style.php" >
+        <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
+        <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
     </head>
 <body>
-<div class="plyr__video-embed" id="player">
-<iframe src="https://www.imdb.com/videoplayer/vi2472065049" width="100%" height="100%" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
+<div class="movie_details">
+        <div class="plyr__video-embed movie_detail_bg" id="player">
+            <iframe src="https://www.youtube.com/embed/YjMSttRJrhA?autoplay=1&mute=1&loop=1&controls=0&showinfo=0"> </iframe>
+        </div>
+        
 </div>
-
 </body>
 </html>

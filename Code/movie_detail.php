@@ -22,11 +22,15 @@
         <title> <?php echo $res['Movie_Name']; ?> </title>
         <link rel="stylesheet" href="style.php" >
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
+        <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
     </head>
     <body>
         <?php include 'header.php' ?>
         <div class="movie_details">
-            <img src="../Assets/movie_detail_bg.jpg" alt="Logo" class="movie_detail_bg" />
+        <div class="plyr__video-embed movie_detail_bg" id="player">
+            <iframe src="https://www.youtube.com/embed/YjMSttRJrhA?autoplay=1&mute=1&loop=1&controls=0&showinfo=0"> </iframe>
+        </div>
             <img src="../Assets/Overlay.png" alt="Logo" class="movie_detail_bg_overlay" />
             <h1 class="movie_name"> <?php echo $name ?> </h1>
             <div class="movie_info">
