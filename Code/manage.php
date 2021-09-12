@@ -1,7 +1,7 @@
 <?php
     include 'connection.php';
-
-    $q = "select * from members";
+    include 'session.php';
+    $q = "select * from members where Email = '".$_SESSION['email']."'";
     $exectue = mysqli_query($conn,$q);
 ?>
 
@@ -20,7 +20,7 @@
                         while($res = mysqli_fetch_array($exectue))
                         {
                             echo " <div class='users'>";
-                            echo " <a href='update_profile.php?id=".$res['ID']."'> <img src=' ".$res['Icon_URL']." ' alt='logo' class='user_img' />";
+                            echo " <a href='update_profile.php?id=".$res['MID']."'> <img src=' ".$res['Icon_URL']." ' alt='logo' class='user_img' />";
                             echo " <h6 class='user_name'> &nbsp &nbsp &nbsp &nbsp &nbsp ".$res['Name']." &nbsp<i class='fas fa-pencil-alt'></i> </h6> </a>";
                             echo "</div> ";
                         }

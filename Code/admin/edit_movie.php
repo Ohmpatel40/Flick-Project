@@ -7,7 +7,7 @@
     $query = mysqli_query($conn,$q);
     $res = mysqli_fetch_array($query);
 
-    $U = ""; $UA = ""; $A = ""; $S = "";
+    $U = ""; $UA = ""; $A = ""; $S = ""; $not="";
     $hindi = ""; $marathi = ""; $panjabi = ""; $tamil ="";
 
     if($res['Certificate'] == "U")
@@ -22,9 +22,13 @@
     {
         $A = "selected";
     }
-    else
+    elseif($res['Certificate'] == "S")
     {
         $S = "selected";
+    }
+    else
+    {
+        $not = "";
     }
 
     if($res['Audio'] == "Hindi")
@@ -84,47 +88,24 @@
                             $cast = $_POST['cast'];
                             $genres = $_POST['genres'];
                             $plot = $_POST['plot'];
+                            $bg = $_POST['movie_bg'];
 
-                            if($_FILES['movie_image']['type'] == "image/jpeg" or $_FILES['movie_image']['type'] == "image/jpg" or $_FILES['movie_image']['type'] == "image/png")
-                            {
-                                $fileinfo = getimagesize($_FILES['movie_image']['tmp_name']);
-                                if($fileinfo[0] == "1540" && $fileinfo[1] == "430")
-                                {
-                                    $image_name = $_FILES['movie_image']['name'];
-
-                                    $q = "update movies set Movie_Name = '$name' , IMDB = '$rating' , Duration = '$duration', Year = '$year' , Certificate = '$certificate', Audio = '$audio', Poster_URL = '$poster', Movie_URL = '$movie', Cast = '$cast', Genres = '$genres', Plot = '$plot'  where ID = '$id'";
+                             $q = 'update movies set Movie_Name = "'.$name.'" , IMDB = "'.$rating.'" , Duration = "'.$duration.'", Year = "'.$year.'" , Certificate = "'.$certificate.'", Audio = "'.$audio.'", Poster_URL = "'.$poster.'", Movie_URL = "'.$movie.'", Cast = "'.$cast.'", Genres = "'.$genres.'", Plot = "'.$plot.'" , Movie_BG = "'.$bg.'" where ID = "'.$id.'"';
 
                                     $resp = mysqli_query($conn,$q);
-
-                                    if($resp)
-                                    {
-                                        move_uploaded_file($_FILES['movie_image']['tmp_name'],"../moviebg/".$_FILES['movie_image']['name']);    
-                                        echo "<script>";
-                                            echo ("location.href='all_movies.php'");
-                                        echo "</script>";
-                                    }
-                                    else
-                                    {
-                                        echo "ERROR ERROR";
-                                    }
-                                }
-                                else
-                                {
-                                    echo '
-                                    <div class="alert alert-danger col-12 text-center text-sm " role="alert">
-                                        <i class="fas fa-times-circle "></i> Image dimension should be 1540 X 430
-                                    </div>
-                                    ';
-                                }
+                            if($resp)
+                            {
+                                echo "<script>";
+                                    echo ("location.href='all_movies.php'");
+                                echo "</script>";
                             }
                             else
                             {
-                                echo '
-                                    <div class="alert alert-danger col-12 text-center text-sm " role="alert">
-                                        <i class="fas fa-times-circle "></i> Select .jpeg , .jpg , .png files only!!!
-                                    </div>
-                                ';  
-                            }
+                                echo "ERROR ERROR";
+                            }    
+
+                                   
+                                
                         }
                     ?>
 
@@ -202,8 +183,8 @@
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
-                                        <label for="formGroupExampleInput">Movie Image</label>
-                                        <input type="file" class="form-control-file" required name="movie_image" id="formGroupExampleInput" accept="image/*">
+                                        <label for="formGroupExampleInput">Movie Trailer URL</label>
+                                        <input type="text" class="form-control" value="<?php echo $res['Movie_BG'] ?>" required name="movie_bg" id="formGroupExampleInput" placeholder="Enter Movie Trailer URL">
                                     </div>
                                 </div>
                             </div>
@@ -253,37 +234,6 @@
 <?php 
     include 'includes/script.php'; 
     include 'includes/footer.php'; 
-
-    if(isset($_POST['submit']))
-    {
-        $name = $_POST['name'];
-        $rating = $_POST['rating'];
-        $duration = $_POST['duration'];
-        $year = $_POST['year'];
-        $certificate = $_POST['certificate'];
-        $audio = $_POST['audio'];
-        $poster = $_POST['poster_url'];
-        $movie = $_POST['movie_url'];
-        $cast = $_POST['cast'];
-        $genres = $_POST['genres'];
-        $plot = $_POST['plot'];
-
-        $q = "update movies set Movie_Name = '$name' , IMDB = '$rating' , Duration = '$duration', Year = '$year' , Certificate = '$certificate', Audio = '$audio', Poster_URL = '$poster', Movie_URL = '$movie', Cast = '$cast', Genres = '$genres', Plot = '$plot' where ID = '$id'";
-
-        $resp = mysqli_query($conn,$q);
-
-        if($resp)
-        {
-                echo "<script>";
-                    echo ("location.href='all_movies.php'");
-                echo "</script>";
-        }
-        else
-        {
-            echo "ERROR ERROR";
-        }
-    }
- 
  ?>
 
 

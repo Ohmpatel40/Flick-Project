@@ -90,22 +90,15 @@
                             $cast = $_POST['cast'];
                             $genres = $_POST['genres'];
                             $plot = $_POST['plot'];
+                            $bg = $_POST['movie_bg'];
 
-                            if($_FILES['movie_image']['type'] == "image/jpeg" or $_FILES['movie_image']['type'] == "image/jpg" or $_FILES['movie_image']['type'] == "image/png")
-                            {
-                                $fileinfo = getimagesize($_FILES['movie_image']['tmp_name']);
-                                if($fileinfo[0] == "1540" && $fileinfo[1] == "430")
-                                {
-                                    $image_name = $_FILES['movie_image']['name'];
+                            $q = 'insert into movies(ID,Movie_Name,Cast,Genres,Plot,IMDB,Duration,Year,Certificate,Audio,Poster_URL,Movie_URL,Movie_BG) values ("'.$id.'","'.$name.'","'.$cast.'","'.$genres.'","'.$plot.'","'.$rating.'","'.$duration.'","'.$year.'","
+                                '.$certificate.'","'.$audio.'","'.$poster.'","'.$movie.'","'.$bg.'")';
 
-                                    $q = 'insert into movies(ID,Movie_Name,Cast,Genres,Plot,IMDB,Duration,Year,Certificate,Audio,Poster_URL,Movie_URL,Movie_BG) values ("'.$id.'","'.$name.'","'.$cast.'","'.$genres.'","'.$plot.'","'.$rating.'","'.$duration.'","'.$year.'","
-                                    '.$certificate.'","'.$audio.'","'.$poster.'","'.$movie.'","'.$image_name.'")';
-
-                                    $resp = mysqli_query($conn,$q);
+                                $resp = mysqli_query($conn,$q);
 
                                     if($resp)
                                     {
-                                        move_uploaded_file($_FILES['movie_image']['tmp_name'],"../moviebg/".$_FILES['movie_image']['name']);    
                                         echo "<script>";
                                             echo ("location.href='all_movies.php'");
                                         echo "</script>";
@@ -113,30 +106,12 @@
                                     else
                                     {
                                         echo "ERROR ERROR";
-                                    }
-                                }
-                                else
-                                {
-                                    echo '
-                                    <div class="alert alert-danger col-12 text-center text-sm " role="alert">
-                                        <i class="fas fa-times-circle "></i> Image dimension should be 1540 X 430
-                                    </div>
-                                    ';
-                                }
-                            }
-                            else
-                            {
-                                echo '
-                                    <div class="alert alert-danger col-12 text-center text-sm " role="alert">
-                                        <i class="fas fa-times-circle "></i> Select .jpeg , .jpg , .png files only!!!
-                                    </div>
-                                ';  
-                            }
+                                    }   
                         }
                     ?>
                     <!-- Content Row -->
                     <div class="row mt-3 ml-0 mr-0 align-items-center justify-content-around">
-                        <form method="POST" enctype="multipart/form-data" style="width: 100%;">
+                        <form method="POST" style="width: 100%;">
                         
                             <div class="row mb-0">
                                 <div class="col">
@@ -208,8 +183,8 @@
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
-                                        <label for="formGroupExampleInput">Movie Image</label>
-                                        <input type="file" class="form-control-file" required name="movie_image" id="formGroupExampleInput" accept="image/*">
+                                        <label for="formGroupExampleInput">Movie Trailer URL</label>
+                                        <input type="text" class="form-control" required name="movie_bg" id="formGroupExampleInput" placeholder="Enter Movie Trailer URL">
                                     </div>
                                 </div>
                             </div>

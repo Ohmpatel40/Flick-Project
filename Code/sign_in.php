@@ -43,7 +43,6 @@
                                 if($pass == $res['Password'])
                                 {
                                     $_SESSION['email'] = $email;
-                                    $_SESSION['username'] = $res['Username'];
                                     echo "<script>";
                                         echo ("location.href='index.php'");
                                     echo "</script>";
@@ -83,7 +82,7 @@
                     <button type="submit" class="register_btn" name="submit" > Sign In </button>
                 </form>
                 <h5 class="need_help"> Need Help? </h5>
-                <h5 class="new_user"> New on Flick? <span class="sign_up"> Sign up now </snap> </h5>
+                <h5 class="new_user"> New on Flick? <a class="sign_up" href="register.php"> Sign up now </a> </h5>
             </div>
         </div>
     </body>

@@ -1,15 +1,30 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="style.php" >
-        <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
-        <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
-    </head>
-<body>
-<div class="movie_details">
-        <div class="plyr__video-embed movie_detail_bg" id="player">
-            <iframe src="https://www.youtube.com/embed/YjMSttRJrhA?autoplay=1&mute=1&loop=1&controls=0&showinfo=0"> </iframe>
-        </div>
-        
-</div>
-</body>
-</html>
+<?php 
+require "phpmailer/vendor/autoload.php"; //PHPMailer Object 
+$mail = new PHPMailer(true); //From email address and name 
+$mail->From = "from@yourdomain.com"; 
+$mail->FromName = "Full Name"; //To address and name 
+$mail->addAddress("recepient1@example.com", "Recepient Name");//Recipient name is optional
+$mail->addAddress("recepient1@example.com"); //Address to which recipient will reply 
+$mail->addReplyTo("reply@yourdomain.com", "Reply"); //CC and BCC 
+$mail->addCC("cc@example.com"); 
+$mail->addBCC("bcc@example.com"); //Send HTML or Plain Text email 
+$mail->isHTML(true); 
+$mail->Subject = "Subject Text"; 
+$mail->Body = "<i>Mail body in HTML</i>";
+$mail->AltBody = "This is the plain text version of the email content"; 
+if(!$mail->send()) 
+{
+echo "Mailer Error: " . $mail->ErrorInfo; 
+} 
+else { echo "Message has been sent successfully"; 
+}
+if(!$mail->send()) 
+{ 
+echo "Mailer Error: " . $mail->ErrorInfo; 
+} 
+else 
+{ 
+echo "Message has been sent successfully"; 
+}
+
+?>

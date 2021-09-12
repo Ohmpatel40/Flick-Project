@@ -21,7 +21,7 @@ a:link
 
 .header
 {
-    background-color: transparent;
+    background-color: black;
     display: flex;
     align-items: center;
     height: 60px;
@@ -204,7 +204,7 @@ a:link
 {
     position: absolute;
     right: 0;
-    top: 32;
+    top: 37;
     opacity: 0.8;
     
 }
@@ -213,7 +213,7 @@ a:link
 {
     position: absolute;
     left: 0;
-    top: 32;
+    top: 37;
     opacity: 0.8;
     margin-left: 14px;
 }
@@ -283,7 +283,7 @@ a:link
 {
     position: absolute;
     right: 0;
-    top: 31;
+    top: 37;
     opacity: 0.8;
     
 }
@@ -292,7 +292,7 @@ a:link
 {
     position: absolute;
     left: 0;
-    top: 31;
+    top: 37;
     opacity: 0.8;
     margin-left: 14px;
 }
@@ -328,21 +328,21 @@ a:link
 .movie_detail_bg
 {
     position: absolute;
-    top: -50;
-    right: -210;
-    width: 100%;
-    height: 500px;
+    top: -100;
+    right: -125;
+    width: 1000px;
+    height: 600px;
     z-index: -2;
-    border: 1px solid white;
+    
     
 }
 .movie_detail_bg_overlay
 {
     position: absolute;
-    top: 0;
+    top: -14;
     right: 0;
-    width: 100%;
-    height: 100vh;
+    width: 900px;
+    height: 540px;
     z-index: -1;
 }
 
@@ -408,6 +408,9 @@ a:link
 
 .play_button
 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 124px;
     height: 43px;
     background-color: #FCE762;
@@ -422,6 +425,9 @@ a:link
 
 .add_button
 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 43;
     height: 43;
     background-color: #919191;
@@ -477,6 +483,7 @@ td
 .footer
 {
     text-align: center;
+    margin-top: -60px;
 }
 .footer_logo
 {
@@ -816,15 +823,16 @@ label::before {
   border-radius: 50%;
   border: 1px solid grey;
   position: absolute;
-  top: 5px;
-  left: 5px;
-  width: 20px;
-  height: 20px;
+  top: 9px;
+  left: 11px;
+  height: 64px;
+  width: 66px;
   text-align: center;
   line-height: 20px;
   font-size: 14px;
   transition-duration: 0.4s;
   transform: scale(0);
+  z-index: -1;
 }
 
 label img {
@@ -839,13 +847,15 @@ label img {
 }
 
 :checked+label::before {
-  content: "✓";
+  content: "";
   background-color: green;
   transform: scale(1);
+  z-index: -1;
+  box-shadow: 0px 0px 10px rgba(22,219,101,1);
 }
 
 :checked+label img {
-  z-index: -1;
+  z-index: 0;
 }
 
 .new_user_form

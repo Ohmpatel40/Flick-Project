@@ -1,7 +1,7 @@
 <?php
     include 'connection.php';
-    $_SESSION['id'];
-    $q = "select * from members where Email='".$_SESSION['email']."' and ID = ".$_SESSION['id']."";
+    include 'session.php';
+    $q = "select * from members where Email='".$_SESSION['email']."' and MID = '".$_SESSION['mid']."'";
     $query = mysqli_query($conn,$q);
     $res = mysqli_fetch_array($query);
     $url = $res['Icon_URL'];
@@ -31,7 +31,7 @@
                             <img src="<?php echo $url ?>" class="user_logo">
                         </a>
                         <ul class="dropdown-menu mt-3" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item font-weight-bolder text-md"> <?php  echo $name ?> </a>
+                            <a class="dropdown-item font-weight-bolder text-md"> <?php  echo $res['Name'] ?> </a>
                             <a class="dropdown-item text-md" href="index.php">
                                 Profiles
                             </a>

@@ -1,6 +1,3 @@
-<?php 
-    include 'session.php';
-?>
 
 <html>
     <head>
@@ -11,9 +8,14 @@
     <body>
         <?php include 'header.php' ?>
         <?php include 'movie_banner.php' ?>
-        <?php include 'continue_watching.php' ?>
+        <?php include 'mylist.php' ?>
         <?php include 'top10.php' ?>
         <?php include 'popular_flick.php' ?>
+        <?php include 'comedy.php' ?>
+        <?php include 'aliabhat.php' ?>
+        <?php include 'action.php' ?>
+        <?php include 'crime.php' ?>
+        <?php include 'drama.php' ?>
     </body>
 </html>
 

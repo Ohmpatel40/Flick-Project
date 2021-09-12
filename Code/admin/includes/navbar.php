@@ -50,7 +50,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="all_users.php">
                     <i class="fas fa-users"></i>
                     <span>All Users</span></a>
             </li>

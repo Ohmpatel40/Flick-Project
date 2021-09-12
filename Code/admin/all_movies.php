@@ -38,7 +38,8 @@
                            echo ' <div class="card mr-4 mb-4" style="width: 180px;">
                             <img src="'.$res['Poster_URL'].'" class="card-img-top" style="height: 207px;" alt="...">
                                 <div class="card-body ">
-                                    <h6 class="card-title text-center text-dark" style="height: 50px;">'.$res['Movie_Name'].'</h6>
+                                    <h6 class="card-title text-center text-dark"> ID: '.$res['ID'].'</h6>
+                                    <h6 class="card-title text-center text-dark font-weight-bolder" style="height: 50px;">'.$res['Movie_Name'].'</h6>
                                     <div class="d-sm-flex align-items-center justify-content-around">
                                         <a href="edit_movie.php?id='.$res['ID'].'" class="btn btn-primary" style="width: 4rem;"> <i class="fas fa-pencil-alt"></i></a>
                                         <a href="delete_movie.php?id='.$res['ID'].'" class="btn btn-danger" style="width: 4rem;"> <i class="fas fa-trash"></i> </a>

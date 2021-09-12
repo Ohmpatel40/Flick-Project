@@ -1,5 +1,6 @@
 <?php
     include 'connection.php';
+    include 'session.php';
 ?>
 
 <html>
@@ -79,8 +80,8 @@
             {
                 $URL = $_POST['icon'];
                 $name = $_POST['name'];
-
-                $q = "insert into users(Name,Icon_URL)values('$name','$URL')";
+                $mid = bin2hex(random_bytes(5));
+                $q = "insert into members(MID,Name,Icon_URL,Email)values('".$mid."','".$name."','".$URL."','".$_SESSION['email']."')";
                 $execute = mysqli_query($conn,$q);
 
                 if($execute)

@@ -5,42 +5,46 @@
         <div class="list">
             <h3 class="list_title"> Top 10 in India today </h3>
             <div class="movie_list" id="movie_list3" onscroll="check3()">
-                <div class="top_list">
-                    <h1 class="rank">1</h1>
-                    <img src="../Posters/HSKD.jpg" alt="Logo" class="top_poster first" />
-                </div>
-                <div class="top_list">
-                    <h1 class="rank">2</h1>
-                    <img src="../Posters/Dear Zindagi.jpg" alt="Logo" class="top_poster" />
-                </div>
-                <div class="top_list">
-                    <h1 class="rank">3</h1>
-                    <img src="../Posters/Raazi.jpg" alt="Logo" class="top_poster" />
-                </div>
-                <div class="top_list">
-                    <h1 class="rank">4</h1>
-                    <img src="../Posters/Gully Boy.jpg" alt="Logo" class="top_poster" />
-                </div>
-                <div class="top_list">
-                    <h1 class="rank">5</h1>
-                    <img src="../Posters/2 States.jpg" alt="Logo" class="top_poster" />
-                </div>
-                <div class="top_list">
-                    <h1 class="rank">6</h1>
-                    <img src="../Posters/BKD.jpg" alt="Logo" class="top_poster" />
-                </div>
-                <div class="top_list">
-                    <h1 class="rank">7</h1>
-                    <img src="../Posters/Kapoor and Sons.jpg" alt="Logo" class="top_poster" />
-                </div>
-                <div class="top_list">
-                    <h1 class="rank">9</h1>
-                    <img src="../Posters/SOTY.jpg" alt="Logo" class="top_poster" />
-                </div>
-                <div class="top_list">
-                    <h1 class="rank">10</h1>
-                    <img src="../Posters/2 States.jpg" alt="Logo" class="top_poster last" />
-                </div>
+                
+                    <?php 
+                        include 'connection.php';
+                        $q = "select * from top10";
+                        $query = mysqli_query($conn,$q);
+                        $first = ""; $last = "";
+
+                        while($res = mysqli_fetch_array($query))
+                        {   
+                            if($res['Rank'] == 1)
+                            {
+                                echo '
+                                <div class="top_list">
+                                    <h1 class="rank">'.$res['Rank'].'</h1>
+                                    <a href = "movie_detail.php?id='.$res['ID'].'" > <img src="'.$res['Poster_URL'].'" alt="Logo" class="top_poster first" /> </a>
+                                </div>
+                                ';  
+                            }
+                            elseif($res['Rank'] == 10)
+                            {
+                                echo '
+                                <div class="top_list">
+                                    <h1 class="rank">'.$res['Rank'].'</h1>
+                                    <a href = "movie_detail.php?id='.$res['ID'].'" > <img src="'.$res['Poster_URL'].'" alt="Logo" class="top_poster last" /> </a>
+                                </div>
+                                '; 
+                            }
+                            else
+                            {
+                                echo '
+                                <div class="top_list">
+                                    <h1 class="rank">'.$res['Rank'].'</h1>
+                                    <a href = "movie_detail.php?id='.$res['ID'].'" > <img src="'.$res['Poster_URL'].'" alt="Logo" class="top_poster" /> </a>
+                                </div>
+                                '; 
+                            }
+
+                            
+                        }
+                    ?>
             </div>
             <div class="next_top">
                 <button class="slide_right_top" id="slideRight3"> <i class="fas fa-chevron-right"> </i> </button>

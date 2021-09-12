@@ -1,11 +1,11 @@
 <?php
     $id = $_GET['id'];
     include 'connection.php';
-    include 'session.php';
     $q = "select * from movies where ID = '$id'";
     $query = mysqli_query($conn,$q);
     $res = mysqli_fetch_array($query);
     $num = mysqli_num_rows($query);
+    $id = $res['ID'];
     $name = $res['Movie_Name'];
     $imdb = $res['IMDB'];
     $duration = $res['Duration'];
@@ -15,6 +15,7 @@
     $cast = $res['Cast'];
     $genres = $res['Genres'];
     $audio = $res['Audio'];
+    $bg = $res['Movie_BG'];
 ?>
 
 <html>
@@ -29,9 +30,9 @@
         <?php include 'header.php' ?>
         <div class="movie_details">
         <div class="plyr__video-embed movie_detail_bg" id="player">
-            <iframe src="https://www.youtube.com/embed/YjMSttRJrhA?autoplay=1&mute=1&loop=1&controls=0&showinfo=0"> </iframe>
+            <iframe src="<?php echo $bg ?>?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&showinfo=0"> </iframe>
         </div>
-            <img src="../Assets/Overlay.png" alt="Logo" class="movie_detail_bg_overlay" />
+            <img src="../Assets/Overlay1.png" alt="Logo" class="movie_detail_bg_overlay" />
             <h1 class="movie_name"> <?php echo $name ?> </h1>
             <div class="movie_info">
                 <button class="imdb"> <i class="fab fa-imdb imdb_logo"></i> </button>
@@ -43,8 +44,8 @@
                 </div>
             </div>
             <div class="movie_details_buttons">
-                <button class = "play_button"> <i class="fas fa-play"></i> Play  </button>
-                <button class="add_button"> <i class="fas fa-plus"></i> </button>
+                <a href="#" > <div class = "play_button"> <i class="fas fa-play"></i> &nbsp; Play  </div> </a>
+                <a href="add_mylist.php?id=<?php echo $id ?>" > <div class="add_button"> <i class="fas fa-plus"></i> </div> </a>
             </div>
             <p class="plot"> <?php echo $plot ?> </p>
             <table class="cast">

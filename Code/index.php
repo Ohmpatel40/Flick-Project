@@ -32,7 +32,7 @@
                         while($res = mysqli_fetch_array($exectue))
                         {
                             echo " <div class='users'>";
-                            echo " <a href='setid.php?id=".$res['ID']." '> <img src=' ".$res['Icon_URL']." ' alt='logo' class='user_img' /> </a> ";
+                            echo " <a href='setid.php?id=".$res['MID']." '> <img src=' ".$res['Icon_URL']." ' alt='logo' class='user_img' /> </a> ";
                             echo " <h6 class='user_name'> ".$res['Name']."</h6>";
                             echo "</div> ";
                         }

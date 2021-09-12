@@ -26,6 +26,7 @@
                         $cpass = $_POST['cpassword'];
                         $username = $first ." ". $last;
                         $token = bin2hex(random_bytes(15));
+                        $uid = bin2hex(random_bytes(5));
 
                         $q = "select * from users where Email = '$email'";
                         $query = mysqli_query($conn,$q);
@@ -49,7 +50,7 @@
 
                                 if(mail($email,$subject,$body,$headers))
                                 {
-                                    $q = "insert into users (Email,Username,Password,Token) values ('$email','$username','$pass','$token')";
+                                    $q = "insert into users (UID,Email,Username,Password,Token) values ('$uid','$email','$username','$pass','$token')";
                                     $query = mysqli_query($conn,$q);
                                     if($query)
                                     {

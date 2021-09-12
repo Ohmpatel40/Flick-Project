@@ -1,7 +1,7 @@
 <?php
     include 'connection.php';
     $ids = $_GET['id']; 
-    $q = "select * from members where ID = $ids";
+    $q = "select * from members where MID = '$ids'";
     $execute = mysqli_query($conn,$q);
     $res = mysqli_fetch_array($execute);
 

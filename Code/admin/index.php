@@ -7,6 +7,14 @@
     $q = "select * from movies";
     $query = mysqli_query($conn,$q);
     $num_movies = mysqli_num_rows($query);
+
+    $q = "select * from users where Status = 'Active'";
+    $query = mysqli_query($conn,$q);
+    $active = mysqli_num_rows($query);
+
+    $q = "select * from users where Status = 'Inactive'";
+    $query = mysqli_query($conn,$q);
+    $inactive = mysqli_num_rows($query);
  ?>
  
         <!-- Content Wrapper -->
@@ -47,16 +55,16 @@
                         </div>
 
                         <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Total Movies</div>
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800"><?php echo $num_movies ?></div>
+                                                Total Active Users</div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800"><?php echo $active ?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-film fa-3x text-gray-300"></i>
+                                            <i class="fas fa-users fa-3x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -65,16 +73,16 @@
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card border-left-danger shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Total Users</div>
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                                Total Inactive Users</div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800"><?php echo $inactive ?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-users fa-3x text-gray-300"></i>
+                                            <i class="fas fa-ban fa-3x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
