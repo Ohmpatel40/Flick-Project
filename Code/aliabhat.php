@@ -4,7 +4,7 @@
     <body>
         <div class="list">
             <h3 class="list_title"> Best of Alia Bhat </h3>
-            <div class="movie_list" id="movie_list5" onscroll="check()">
+            <div class="movie_list" id="movie_list5" onscroll="check5()">
             <?php 
                  include 'connection.php';
                  $q = "select * from movies where Cast like '%Alia Bhat%' limit 15";
@@ -40,7 +40,7 @@
             document.getElementById('movie_list5').scrollLeft -= 600;
         };
 
-        function check()
+        function check5()
         {
             if(div5.scrollLeft > 0)
             {

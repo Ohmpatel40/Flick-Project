@@ -4,7 +4,7 @@
     <body>
         <div class="list">
             <h3 class="list_title"> Crime Movies </h3>
-            <div class="movie_list" id="movie_list8" onscroll="check()">
+            <div class="movie_list" id="movie_list7" onscroll="check7()">
             <?php 
                  include 'connection.php';
                  $q = "select * from movies where Genres like '%crime%' limit 15";
@@ -19,32 +19,32 @@
             ?>
             </div>
             <div class="next">
-                <button class="slide_right" id="slideRight8"> <i class="fas fa-chevron-right"> </i> </button>
+                <button class="slide_right" id="slideRight7"> <i class="fas fa-chevron-right"> </i> </button>
             </div>
             <div class="previous">
-                <button class="slide_left" id="slideLeft8"> <i class="fas fa-chevron-left"> </i> </button>
+                <button class="slide_left" id="slideLeft7"> <i class="fas fa-chevron-left"> </i> </button>
             </div>
         </div>
     </body>
     <script>
-        const buttonRight8 = document.getElementById('slideRight8');
-        const buttonLeft8 = document.getElementById('slideLeft8');
-        const div8 = document.getElementById('movie_list8');
+        const buttonRight7 = document.getElementById('slideRight7');
+        const buttonLeft7 = document.getElementById('slideLeft7');
+        const div7 = document.getElementById('movie_list7');
 
-        buttonRight8.onclick = function ()
+        buttonRight7.onclick = function ()
         {
-            document.getElementById('movie_list8').scrollLeft += 600;
+            document.getElementById('movie_list7').scrollLeft += 600;
         };
-        buttonLeft8.onclick = function () 
+        buttonLeft7.onclick = function () 
         {
-            document.getElementById('movie_list8').scrollLeft -= 600;
+            document.getElementById('movie_list7').scrollLeft -= 600;
         };
 
-        function check()
+        function check7()
         {
-            if(div8.scrollLeft > 0)
+            if(div7.scrollLeft > 0)
             {
-                buttonLeft8.classList.add("visible");
+                buttonLeft7.classList.add("visible");
             }
         }
         

@@ -3,8 +3,8 @@
     </head>
     <body>
         <div class="list">
-            <h3 class="list_title"> Top 10 in India today </h3>
-            <div class="movie_list" id="movie_list3" onscroll="check3()">
+            <h2 class="list_title"> Top 10 in India today </h2>
+            <div class="movie_list" id="movie_list2" onscroll="check2()">
                 
                     <?php 
                         include 'connection.php';
@@ -47,33 +47,33 @@
                     ?>
             </div>
             <div class="next_top">
-                <button class="slide_right_top" id="slideRight3"> <i class="fas fa-chevron-right"> </i> </button>
+                <button class="slide_right_top" id="slideRight2"> <i class="fas fa-chevron-right"> </i> </button>
             </div>
             <div class="previous_top">
-                <button class="slide_left_top" id="slideLeft3"> <i class="fas fa-chevron-left"> </i> </button>
+                <button class="slide_left_top" id="slideLeft2"> <i class="fas fa-chevron-left"> </i> </button>
             </div>
         </div>
     </body>
     <script>
-        const buttonRight3 = document.getElementById('slideRight3');
-        const buttonLeft3 = document.getElementById('slideLeft3');
-        const div3 = document.getElementById('movie_list3');
+        const buttonRight2 = document.getElementById('slideRight2');
+        const buttonLeft2 = document.getElementById('slideLeft2');
+        const div2 = document.getElementById('movie_list2');
 
-        buttonRight3.onclick = function ()
+        buttonRight2.onclick = function ()
         {
-            document.getElementById('movie_list3').scrollLeft += 600;
+            document.getElementById('movie_list2').scrollLeft += 600;
         };
-        buttonLeft3.onclick = function () 
+        buttonLeft2.onclick = function () 
         {
-            document.getElementById('movie_list3').scrollLeft -= 600;
+            document.getElementById('movie_list2').scrollLeft -= 600;
         };
 
-        function check3()
+        function check2()
         {
-            if(div3.scrollLeft > 0)
+            if(div2.scrollLeft > 0)
             {
                 console.log("SCROLL");
-                buttonLeft3.classList.add("show");
+                buttonLeft2.classList.add("show");
             }
         }
         

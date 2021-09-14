@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 12, 2021 at 10:58 PM
+-- Generation Time: Sep 14, 2021 at 11:55 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.22
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `flick`
 --
-CREATE DATABASE IF NOT EXISTS `flick` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `flick`;
 
 -- --------------------------------------------------------
 

@@ -20,11 +20,12 @@
 
 <html>
     <head>
-        <title> <?php echo $res['Movie_Name']; ?> </title>
+        <title> Flick - <?php echo $res['Movie_Name']; ?> </title>
         <link rel="stylesheet" href="style.php" >
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
         <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
+        <link rel="shortcut icon" href="../Assets/favicon.png" type="image/png">
     </head>
     <body>
         <?php include 'header.php' ?>

@@ -4,7 +4,7 @@
     <body>
         <div class="list">
             <h3 class="list_title"> Dramas </h3>
-            <div class="movie_list" id="movie_list9" onscroll="check()">
+            <div class="movie_list" id="movie_list9" onscroll="check9()">
             <?php 
                  include 'connection.php';
                  $q = "select * from movies where Genres like '%drama%' limit 15";
@@ -40,7 +40,7 @@
             document.getElementById('movie_list9').scrollLeft -= 600;
         };
 
-        function check()
+        function check9()
         {
             if(div9.scrollLeft > 0)
             {
