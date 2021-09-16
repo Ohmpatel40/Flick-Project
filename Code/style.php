@@ -932,3 +932,47 @@ label img {
     justify-content: center;
     align-items: center;
 }
+
+.search_div
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search_input
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+    height: 100px;
+}
+
+.search
+{
+    font-size: 12px;
+}
+
+.result
+{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 25px;
+}
+
+.result_poster
+{
+    height: 217px;
+    width: 147px;
+    margin-bottom: 45px;
+    border-radius: 7px;
+    transition: transform 0.2s ease-in;
+}
+
+.result_poster:hover
+{
+    transform: scale(1.1);
+}

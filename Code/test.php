@@ -1,30 +1,7 @@
-<?php 
-require "phpmailer/vendor/autoload.php"; //PHPMailer Object 
-$mail = new PHPMailer(true); //From email address and name 
-$mail->From = "from@yourdomain.com"; 
-$mail->FromName = "Full Name"; //To address and name 
-$mail->addAddress("recepient1@example.com", "Recepient Name");//Recipient name is optional
-$mail->addAddress("recepient1@example.com"); //Address to which recipient will reply 
-$mail->addReplyTo("reply@yourdomain.com", "Reply"); //CC and BCC 
-$mail->addCC("cc@example.com"); 
-$mail->addBCC("bcc@example.com"); //Send HTML or Plain Text email 
-$mail->isHTML(true); 
-$mail->Subject = "Subject Text"; 
-$mail->Body = "<i>Mail body in HTML</i>";
-$mail->AltBody = "This is the plain text version of the email content"; 
-if(!$mail->send()) 
-{
-echo "Mailer Error: " . $mail->ErrorInfo; 
-} 
-else { echo "Message has been sent successfully"; 
-}
-if(!$mail->send()) 
-{ 
-echo "Mailer Error: " . $mail->ErrorInfo; 
-} 
-else 
-{ 
-echo "Message has been sent successfully"; 
-}
-
-?>
+<html>
+    <head>
+    </head>
+    <body>
+    <script src="https://fast.wistia.com/embed/medias/x4klyd9alk.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_responsive_padding" style="padding:41.88% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><div class="wistia_embed wistia_async_x4klyd9alk videoFoam=true" style="height:100%;position:relative;width:100%">&nbsp;</div></div></div>
+    </body>
+</html>

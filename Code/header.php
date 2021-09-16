@@ -17,7 +17,7 @@
     <body>
         <div class="header">
             <div class="logo_menu">
-                <img src="../Assets/Logo.svg" alt="Logo" class="header_logo" />
+                <a href="home.php" > <img src="../Assets/Logo.svg" alt="Logo" class="header_logo" /> </a>
                 <div class="menu">
                     <a href="#" class="header_menu"> Movies </a>
                     <a href="#" class="header_menu"> Recently Added </a>
@@ -25,7 +25,7 @@
                 </div>
             </div>
                 <div class="search">
-                    <i class="fas fa-search search_logo"></i>
+                    <a href="search.php" > <i class="fas fa-search search_logo"></i> </a>
                     <div class=" dropdown no-arrow">
                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="<?php echo $url ?>" class="user_logo">

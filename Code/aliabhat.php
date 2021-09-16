@@ -7,7 +7,7 @@
             <div class="movie_list" id="movie_list5" onscroll="check5()">
             <?php 
                  include 'connection.php';
-                 $q = "select * from movies where Cast like '%Alia Bhat%' limit 15";
+                 $q = "select * from movies where Cast like '%Alia Bhat%' order by rand() limit 15";
                  $query = mysqli_query($conn,$q);
                  
                  while($res = mysqli_fetch_array($query))

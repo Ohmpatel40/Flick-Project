@@ -7,7 +7,7 @@
             <div class="movie_list" id="movie_list6" onscroll="check6()">
             <?php 
                  include 'connection.php';
-                 $q = "select * from movies where Genres like '%Action%' limit 15";
+                 $q = "select * from movies where Genres like '%Action%' order by rand() limit 15";
                  $query = mysqli_query($conn,$q);
                  
                  while($res = mysqli_fetch_array($query))

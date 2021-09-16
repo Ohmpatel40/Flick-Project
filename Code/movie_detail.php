@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="movie_details_buttons">
-                <a href="#" > <div class = "play_button"> <i class="fas fa-play"></i> &nbsp; Play  </div> </a>
+                <a href="movie_player.php" > <div class = "play_button"> <i class="fas fa-play"></i> &nbsp; Play  </div> </a>
                 <a href="add_mylist.php?id=<?php echo $id ?>" > <div class="add_button"> <i class="fas fa-plus"></i> </div> </a>
             </div>
             <p class="plot"> <?php echo $plot ?> </p>
