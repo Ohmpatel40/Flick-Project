@@ -78,7 +78,7 @@
                     }
                 ?>
                 <form method="POST">
-                    <input type="email" class= "text email" name="email" autocomplete="off" placeholder="Email" required autocomplete="off"/>
+                    <input type="email" class= "text email" name="email" autocomplete="off" placeholder="Email" required autocomplete="off" autofocus/>
                     <input type="password" class= "text email" name="password" autocomplete="off" placeholder="Password" required autocomplete="off"/>
                     <button type="submit" class="register_btn" name="submit" > Sign In </button>
                 </form>

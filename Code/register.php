@@ -93,7 +93,7 @@
                 ?>
                 <form method="POST">
                     <div class="group">
-                        <input type="text" class= "text" name="first" autocomplete="off" placeholder="First Name" required autocomplete="off"/>
+                        <input type="text" class= "text" name="first" autocomplete="off" placeholder="First Name" required autocomplete="off" autofocus/>
                         <input type="text" class= "text" name="last" autocomplete="off" placeholder="Last Name" required autocomplete="off"/>
                     </div>
                     <div class="email">

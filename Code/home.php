@@ -17,6 +17,7 @@
         <?php include 'action.php' ?>
         <?php include 'crime.php' ?>
         <?php include 'drama.php' ?>
+        <?php include 'footer.php' ?>
     </body>
 </html>
 

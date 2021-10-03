@@ -90,12 +90,12 @@
 
                 if(isset($_POST['icon']))
                 {
-                    $q = "update members set Icon_URL = '$URL' , Name = '$name' where ID = $ids";
+                    $q = "update members set Icon_URL = '$URL' , Name = '$name' where MID = '$ids'";
                     
                 }
                 else
                 {
-                    $q = "update members set Name = '$name' where ID = $ids";
+                    $q = "update members set Name = '$name' where MID = '$ids'";
                 }
                 $execute = mysqli_query($conn,$q);
 

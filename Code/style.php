@@ -47,7 +47,7 @@ a:link
 
 .menu
 {
-    width: 270px;
+    width: 200px;
     display: flex;
     margin-left: 20px;
     padding-top: 0px;
@@ -59,6 +59,12 @@ a:link
     color: #BABABA;
     font-family: 'Open Sans', sans-serif;
     font-size: 15px;
+}
+
+.header_menu:hover , .header_menu:active , .header_menu:visited , .header_menu:link
+{
+    text-decoration: none;
+    color: #BABABA;
 }
 
 .search
@@ -322,7 +328,7 @@ a:link
 .movie_details
 {
     position: relative;
-    margin-bottom: 140px;
+    margin-bottom: 80px;
 }
 
 .movie_detail_bg
@@ -483,7 +489,7 @@ td
 .footer
 {
     text-align: center;
-    margin-top: -60px;
+    
 }
 .footer_logo
 {
@@ -494,18 +500,18 @@ td
 
 .footer_info_div
 {
-    width: 700px;
+    width: 620px;
     display: flex;
     justify-content: space-between;
     margin-left: 350px;
-    margin-top: -10px;
+    margin-top: -7px;
 }
 
 .footer_info
 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
-    font-size: 16px;
+    font-size: 14px;
     color: #FCE762;
     text-align: center
 }
@@ -945,19 +951,39 @@ label img {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid white;
-    height: 100px;
+    margin-top: 10px;
+    margin-bottom: -15px;
+    position: relative;
 }
 
-.search
+.search_movie
 {
-    font-size: 12px;
+    width: 500px;
+  
+}
+
+.search_btn
+{
+    position: absolute;
+    height: 52px;
+    width: 60px;
+    padding: 13px 13px 13px 13px;
+    font-size: 18px;
+    color: white;
+    background-color: #FCE762;
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    top: 0;
+    right: 425px;
+
 }
 
 .result
 {
     display: flex;
-    flex-flow: row wrap;
+    flex-wrap: wrap;
+    flex-grow: 1;
     align-items: center;
     justify-content: space-evenly;
     padding: 25px;

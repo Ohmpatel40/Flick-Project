@@ -1,30 +1,38 @@
-<?php
+<html>
+    <head>
+        <link href="style.php" rel="stylesheet">
+    </head>
+    <body>
+        <?php
+            include 'header.php';
+        ?>
 
-$curl = curl_init();
+        <h1 style="text-align: center;"> All Movies </h1>
 
-curl_setopt_array($curl, [
-	CURLOPT_URL => "https://imdb8.p.rapidapi.com/auto-complete?q=housefull",
-	CURLOPT_RETURNTRANSFER => true,
-	CURLOPT_FOLLOWLOCATION => true,
-	CURLOPT_ENCODING => "",
-	CURLOPT_MAXREDIRS => 10,
-	CURLOPT_TIMEOUT => 30,
-	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-	CURLOPT_CUSTOMREQUEST => "GET",
-	CURLOPT_HTTPHEADER => [
-		"x-rapidapi-host: imdb8.p.rapidapi.com",
-		"x-rapidapi-key: 31afc35303mshb509b663c116881p13a3e0jsned9cddabac38"
-	],
-]);
+        <?php 
+            include 'connection.php';
 
-$response = curl_exec($curl);
-$err = curl_error($curl);
-$res = json_decode($response,true);
+            $q = "select * from movies";
+            $query = mysqli_query($conn,$q);
+            $num = mysqli_num_rows($query);
+            echo '
+                <div class="search_div">
+                    <div class="result">
+                    ';
 
-curl_close($curl);
-
-if ($err) {
-	echo "cURL Error #:" . $err;
-} else {
-	echo $response;
-}
+			if($query)
+			{
+				while($res = mysqli_fetch_array($query))
+					{
+						echo '<a href="movie_detail.php?id='.$res['ID'].'"> <img src="'.$res['Poster_URL'].'" class="result_poster" alt="..."> </a>';
+					}
+			}
+            echo '
+                    </div>
+                </div>
+                    ';
+            include 'footer.php';
+        ?>
+    </body>
+    
+</html>

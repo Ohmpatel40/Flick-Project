@@ -22,6 +22,7 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" >
     <link rel="stylesheet" href="css/yearpicker.css">
+    <link rel="shortcut icon" href="img/favicon-admin.png" type="image/png">
 </head>
 
 <body id="page-top">
