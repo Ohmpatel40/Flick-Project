@@ -8,11 +8,11 @@
 
     if($res['Status'] == 'Active')
     {
-        echo $q = "update users set Status = 'Inactive' where UID = '$id'";
+        $q = "update users set Status = 'Inactive' where UID = '$id'";
     }
     else
     {
-        echo $q = "update users set Status = 'Active' where UID = '$id'";
+        $q = "update users set Status = 'Active' where UID = '$id'";
     }
 
     $query = mysqli_query($conn,$q);

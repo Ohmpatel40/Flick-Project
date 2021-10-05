@@ -2,7 +2,7 @@
     $id = $_GET['id'];
     include 'session.php';
     include 'connection.php';
-    $q = "select * from mylist where ID = '$id' and Email = '".$_SESSION['email']."'";
+    $q = "select * from mylist where ID = '$id' and MID = '".$_SESSION['mid']."'";
     $query = mysqli_query($conn,$q);
     $num = mysqli_num_rows($query);
 

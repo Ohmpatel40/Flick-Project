@@ -1002,3 +1002,33 @@ label img {
 {
     transform: scale(1.1);
 }
+
+.change
+{
+    margin-bottom: 30px;
+}
+.player_main
+{
+    position: relative;
+    margin-top: 5px;
+}
+
+.movie_title
+{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    background-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0.8) , rgba(0,0,0,0));
+    text-align: center;
+}
+
+.title
+{
+    margin-top: -10px;
+}
+.player
+{
+    width: 100%;
+    height: 88%;
+}

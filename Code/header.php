@@ -2,8 +2,11 @@
     include 'connection.php';
     include 'session.php';
     $q = "select * from members where Email='".$_SESSION['email']."' and MID = '".$_SESSION['mid']."'";
+    $q1 = "select * from users where Email='".$_SESSION['email']."' ";
     $query = mysqli_query($conn,$q);
+    $query1 = mysqli_query($conn,$q1);
     $res = mysqli_fetch_array($query);
+    $res1 = mysqli_fetch_array($query1);
     $url = $res['Icon_URL'];
 ?>
 
@@ -38,6 +41,10 @@
                             </a>
                             <a class="dropdown-item text-md" href="#">
                                 Help Center
+                            </a>
+                            
+                            <a class="dropdown-item text-md" href="change_pass_mail.php?id=<?php echo $res1['UID']?>">
+                                Change Password
                             </a>
                             <a class="dropdown-item text-md" href="signout.php">
                                 Signout

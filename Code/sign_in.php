@@ -24,7 +24,6 @@
                             </div>
                         '; 
                         $_SESSION['message'] = "";
-                        
                     }
 
                     if(isset($_POST['submit']))
